@@ -1,0 +1,16 @@
+body {
+  height: 100%;
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
+  cursor: none !important;
+}
+a {
+  cursor: none;
+}
+* {
+  box-sizing: border-box;
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+}
