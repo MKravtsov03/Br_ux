@@ -19,12 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const formHandlers = document.querySelectorAll('.form-opener')
   formHandlers.forEach((item)=> {
     item.addEventListener('click', () => {
-      document.querySelector('.menu').classList.remove('active');
-      document.querySelector('.menu-canvas').classList.remove('active');
+      setTimeout(()=> {
+        document.querySelector('.menu-canvas').classList.remove('active');
+        document.querySelector('.menu').classList.remove('active');
+      }, 200)
+      document.querySelector('.form-canvas').classList.add('active');
       document.querySelector('.form-holder').classList.add('active');
     });
   })
   document.querySelector('.form-close').addEventListener('click', () => {
+    document.querySelector('.form-canvas').classList.remove('active');
     document.querySelector('.form-holder').classList.remove('active');
+  });
+  document.querySelector('.discus-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    document.querySelector('.form-inner').classList.add('sent');
+    setTimeout(()=> {
+      document.querySelector('.form-inner').classList.remove('sent');
+    }, 2000)
   });
 });

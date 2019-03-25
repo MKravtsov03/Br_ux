@@ -35,6 +35,7 @@ export default () => {
   let lastX = 0;
   let lastY = 0;
   let isStuck = false;
+  let isOpacity = false;
   let showCursor = false;
   let group, stuckX, stuckY, fillOuterCursor;
 
@@ -111,21 +112,13 @@ export default () => {
       stuckX = Math.round(navItemBox.left + navItemBox.width / 2);
       stuckY = Math.round(navItemBox.top + navItemBox.height / 2);
       isStuck = true;
-      // if (navItem.classList.contains('page-label')) {
-      //   console.log(polygon)
-        
-        
-        
-      //   isStuck = false
-      // }
       if (navItem.classList.contains('menu-btn')) {
         document.querySelector(".menu-btn").classList.add('hovered');
         document.querySelector(".cursor--small").innerHTML = 'menu';
         document.querySelector(".cursor--small").classList.add('menu-hovered');
       }
-      if (navItem.classList.contains('link--opacity')) {
-        console.log(polygon)
-        // polygon.opacity = 0
+      if (navItem.classList.contains('page-label')) {
+        
       }
     };
 
@@ -156,6 +149,7 @@ export default () => {
     // using linear interpolation, the circle will move 0.2 (20%)
     // of the distance between its current position and the mouse
     // coordinates per Frame
+    
     if (!isStuck) {
       // move circle around normally
       lastX = lerp(lastX, clientX, 0.2);
