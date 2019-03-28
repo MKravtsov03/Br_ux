@@ -38,4 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('.form-inner').classList.remove('sent');
     }, 2000)
   });
+  const inputs = document.querySelectorAll(".form-field");
+  inputs.forEach((item)=> {
+    item.addEventListener('keyup', function(){
+      if (item.value !== '') {
+        item.classList.add('content');
+      } else {
+        item.classList.remove('content');
+      }
+    })
+  })
 });

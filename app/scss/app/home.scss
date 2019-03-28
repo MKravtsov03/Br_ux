@@ -123,6 +123,10 @@
     border-radius: 50%;
     z-index: 11000;
     background: #fff;
+    transition: background .3s ease-in-out;
+    &.cursor--red {
+      background: #cf122d;
+    }
     &.menu-hovered {
       font-size: 10px;
       font-weight: 200;
@@ -417,6 +421,9 @@
       font-size: 11px;
       top: -20px;
     }
+    &.error {
+      color: #cf122d;
+    }
   }
   &-area {
     height: 40px;
@@ -460,6 +467,12 @@
   color: #fff;
   border: none;
   width: 63%;
+  cursor: none;
+  transition: .3s ease-in-out;
+  @include desktop-hover {
+    background: #fff;
+    color: #d11e37;
+  }
 }
 .discus-form {
   max-width: 500px;
@@ -487,6 +500,7 @@
   align-items: center;
   justify-content: center;
   color: #4e4e4e;
+  cursor: none;
   svg {
     width: 16px;
     height: 18px;

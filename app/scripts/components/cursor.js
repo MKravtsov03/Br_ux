@@ -117,8 +117,10 @@ export default () => {
         document.querySelector(".cursor--small").innerHTML = 'menu';
         document.querySelector(".cursor--small").classList.add('menu-hovered');
       }
-      if (navItem.classList.contains('page-label')) {
-        
+      
+      if (navItem.classList.contains('btn')) {
+        document.querySelector(".cursor--small").classList.add('cursor--red');
+        polygon.opacity = 0
       }
     };
 
@@ -132,6 +134,8 @@ export default () => {
         document.querySelector(".cursor--small").innerHTML = '';
         document.querySelector(".cursor--small").classList.remove('menu-hovered');
       }
+      document.querySelector(".cursor--small").classList.remove('cursor--red');
+      polygon.opacity = 1;
     };
 
     // add event listeners to all items
