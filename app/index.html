@@ -127,7 +127,7 @@
               Thanks for writing to us. You will be contacted soon.
           </div>
         </div>
-        <form class="discus-form">
+        <form method="post" id="form-fields" class="discus-form" enctype="multipart/form-data">
           <div class="form-title">
             Discuss your idea
           </div>
@@ -135,26 +135,26 @@
             Available for work. Feel free to get in touch.
           </div>
           <div class="form-group">
-            <input type="text" class="form-field">
+            <input type="text" name="firstname" class="form-field">
             <span class="form-label">Name</span>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <input type="email" class="form-field">
+              <input type="email" name="email" class="form-field">
               <span class="form-label">Email <span>*</span></span>
             </div>
             <div class="form-group">
-              <input type="tel" class="form-field">
+              <input type="tel" name="phone" class="form-field">
               <span class="form-label">Phone</span>
             </div>
           </div>
           <div class="form-group">
-            <textarea class="form-area"></textarea>
+            <textarea name="message" class="form-area"></textarea>
             <span class="form-label">Message</span>
           </div>
           <div class="form-btns">
             <label class="file-field">
-              <input type="file" name="" id="">
+              <input type="file" name="file" id="">
               <span class="file-field__label">
                 <svg>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#file"></use>
@@ -162,7 +162,7 @@
                 Add file
               </span>
             </label>
-            <button class="btn">
+            <button type="submit" id="form-btn" class="btn">
               Message
             </button>
           </div>
