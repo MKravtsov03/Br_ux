@@ -45,7 +45,7 @@ export default () => {
       const material = new THREE.ShaderMaterial({
         uniforms: {
           time: { value: 1.0 },
-          texture: { value: textureLoader.load("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1081752/spark1.png") },
+          texture: { value: textureLoader.load("images/oval_1.svg") },
           resolution: { value: new THREE.Vector2() }
         },
 
@@ -73,8 +73,15 @@ export default () => {
 
 
     resize() {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
+      let w;
+      let h;
+      if ($(window).width() < 768) {
+        w = 210;
+        h = 320;
+      } else {
+        w = window.innerWidth;
+        h = window.innerHeight;
+      }
       this.renderer.setSize(w, h);
       this.camera.aspect = w / h;
       this.camera.updateProjectionMatrix();

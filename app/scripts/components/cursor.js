@@ -232,7 +232,7 @@ class Cursor {
         y: this.clientY - this.outerCursorBox.height / 2
       });
       setTimeout(() => {
-        this.outerCursorSpeed = 0.2;
+        this.outerCursorSpeed = .8;
       }, 100);
       this.showCursor = true;
     };
@@ -246,12 +246,12 @@ class Cursor {
     const render = () => {
       TweenMax.set(this.innerCursor, {
         x: this.clientX,
-        y: this.clientY
+        y: this.clientY,
       });
       if (!this.isStuck) {
         TweenMax.to(this.outerCursor, this.outerCursorSpeed, {
           x: this.clientX - this.outerCursorBox.width / 2,
-          y: this.clientY - this.outerCursorBox.height / 2
+          y: this.clientY - this.outerCursorBox.height / 2,
         });
       }
       if (this.showCursor) {
@@ -297,11 +297,27 @@ class Cursor {
         document.querySelector(".cursor--inner").innerHTML = 'menu';
         document.querySelector(".cursor--inner").classList.add('menu-hovered');
       }
+      if (target.classList.contains('menu-close')) {
+        TweenMax.to(this.outerCursor, 0.4, {
+          x: box.left,
+          y: box.top,
+          scale: 0.8,
+          opacity: 0.4,
+          borderColor: "#ffffff"
+        });
+        TweenMax.to(this.innerCursor, 0.2, {
+          backgroundColor: "transparent"
+        });
+        document.querySelector(".menu-close").classList.add('hovered');
+        document.querySelector(".cursor--inner").innerHTML = 'back';
+        document.querySelector(".cursor--inner").classList.add('menu-hovered');
+      }
       if (target.classList.contains('page-label')) {
+        // console.log(box.left / 2 + box.width)
         TweenMax.to(this.outerCursor, 0.6, {
           scale: 1.5,
-          x: this.clientX,
-          y: this.clientY,
+          x: this.clientX - 15,
+          y: this.clientY - 15,
           width: 30,
           height: 30,
           opacity: 0,
@@ -310,10 +326,21 @@ class Cursor {
       }
       
       if (target.classList.contains('menu-right__link')) {
-        TweenMax.to(this.outerCursor, 0.2, {
+        TweenMax.to(this.outerCursor, 0.5, {
           scale: 1.5,
-          x: this.clientX,
-          y: this.clientY,
+          x: this.clientX - 15,
+          y: this.clientY - 15,
+          width: 30,
+          height: 30,
+          opacity: 0,
+          borderColor: "#ffffff"
+        });
+      }
+      if (target.classList.contains('menu-link')) {
+        TweenMax.to(this.outerCursor, 0.5, {
+          scale: 1.5,
+          x: this.clientX - 15,
+          y: this.clientY - 15,
           width: 30,
           height: 30,
           opacity: 0,
@@ -321,10 +348,25 @@ class Cursor {
         });
       }
       if (target.classList.contains('btn')) {
-        TweenMax.to(this.outerCursor, 0.2, {
+        TweenMax.to(this.outerCursor, 0.5, {
           scale: 1.5,
-          x: this.clientX,
-          y: this.clientY,
+          x: this.clientX - 15,
+          y: this.clientY - 15,
+          width: 30,
+          height: 30,
+          opacity: 0,
+          borderColor: "#ffffff"
+        });
+        TweenMax.to(this.innerCursor, 0.2, {
+          backgroundColor: "#cf122d"
+        });
+      }
+      console.log(target)
+      if (target.classList.contains('file-field')) {
+        TweenMax.to(this.outerCursor, 0.5, {
+          scale: 1.5,
+          x: this.clientX - 15,
+          y: this.clientY - 15,
           width: 30,
           height: 30,
           opacity: 0,
@@ -335,18 +377,21 @@ class Cursor {
         });
       }
       if (target.classList.contains('form-close')) {
-        TweenMax.to(this.outerCursor, 0.2, {
+        TweenMax.to(this.outerCursor, .8, {
           scale: 1.5,
-          x: this.clientX,
-          y: this.clientY,
+          x: this.clientX - 15,
+          y: this.clientY - 15,
           width: 30,
           height: 30,
           opacity: 0,
           borderColor: "#ffffff"
         });
+        TweenMax.to(this.innerCursor, 0.2, {
+          backgroundColor: "#cf122d"
+        });
       }
     };
-
+    
     const handleMouseLeave = (e) => {
       this.isStuck = false;
       const target = e.currentTarget;
@@ -365,14 +410,32 @@ class Cursor {
         document.querySelector(".cursor--inner").innerHTML = '';
         document.querySelector(".cursor--inner").classList.remove('menu-hovered');
       }
+      if (target.classList.contains('menu-close')) {
+        document.querySelector(".menu-close").classList.remove('hovered');
+        document.querySelector(".cursor--inner").innerHTML = '';
+        document.querySelector(".cursor--inner").classList.remove('menu-hovered');
+      }
     };
 
     const linkItems = document.querySelectorAll(".link");
     linkItems.forEach(item => {
       item.addEventListener("mouseenter", handleMouseEnter);
       item.addEventListener("mouseleave", handleMouseLeave);
+      item.addEventListener('mousedown', ()=> {
+        TweenMax.to(this.outerCursor, .6, {
+          scale: 0.95,
+          borderColor: "#ffffff"
+        });
+      })
+      item.addEventListener('mouseup', ()=> {
+        TweenMax.to(this.outerCursor, .6, {
+          scale: 1,
+          borderColor: "#ffffff"
+        });
+      })
     });
     const menuBtn = document.querySelector(".menu-btn");
+    const menuClose = document.querySelector(".menu-close");
     menuBtn.addEventListener("mouseenter", handleMouseEnter);
     menuBtn.addEventListener("mouseleave", handleMouseLeave);
     const contactLink = document.querySelectorAll(".menu-right__link");
@@ -380,7 +443,30 @@ class Cursor {
       item.addEventListener("mouseenter", handleMouseEnter);
       item.addEventListener("mouseleave", handleMouseLeave);
     });
-
+    menuBtn.addEventListener('mousedown', ()=> {
+      TweenMax.to(this.outerCursor, .8, {
+        scale: 0.6,
+        borderColor: "#ffffff"
+      });
+    })
+    menuBtn.addEventListener('mouseup', ()=> {
+      TweenMax.to(this.outerCursor, .8, {
+        scale: 0.8,
+        borderColor: "#ffffff"
+      });
+    })
+    menuClose.addEventListener('mousedown', ()=> {
+      TweenMax.to(this.outerCursor, .8, {
+        scale: 0.6,
+        borderColor: "#ffffff"
+      });
+    })
+    menuClose.addEventListener('mouseup', ()=> {
+      TweenMax.to(this.outerCursor, .8, {
+        scale: 0.8,
+        borderColor: "#ffffff"
+      });
+    })
     const mainNavHoverTween = TweenMax.to(this.outerCursor, 0.3, {
       backgroundColor: "#ffffff",
       ease: this.easing,

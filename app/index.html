@@ -3,6 +3,11 @@
 {% include 'head.html' %}
 
 <body>
+  <div class="page-preloader" id="page-preloader">
+    <div class="load" id="page-loader">
+      <img src="images/brandux_preloader.gif" width="250" alt="">
+    </div>
+  </div>
   <div class="wrapp">
 
     <div class="cursor cursor--outer"></div>
@@ -16,11 +21,15 @@
     </header>
     <div class="menu-canvas"></div>
     <div class="menu-btn" data-text="cl">
-      <div class="burger"></div>
+      <div class="burger">
+        <span class="line-1"></span>
+        <span class="line-2"></span>
+      </div>
     </div>
     <div class="menu">
       <div class="menu-close link link--opacity">
-        Back
+        <span class="line-1"></span>
+        <span class="line-2"></span>
       </div>
       <div class="menu-left">
         <nav>
@@ -47,7 +56,7 @@
             </li>
           </ul>
         </nav>
-        <div class="footer-label">Ull website is coming soon...</div>
+        <div class="footer-label">Full website is coming soon...</div>
       </div>
       <div class="menu-right">
         <div class="menu-right__inner">
@@ -57,44 +66,45 @@
           <div>
             <a href="" class="menu-right__link mail-link">
               <span>
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#envelop"></use>
-              </svg>
-              hello@brandux.agency
-            </span>
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#envelop"></use>
+                </svg>
+                hello@brandux.agency
+              </span>
             </a>
           </div>
           <div>
             <a href="" class="menu-right__link skype-link">
               <span>
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#skype"></use>
-              </svg>
-              brandux.agency
-            </span>
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#skype"></use>
+                </svg>
+                brandux.agency
+              </span>
             </a>
           </div>
           <div class="socials">
-            <a href="" class="socials-item link menu-link">
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#facebook"></use>
-              </svg>
-            </a>
-            <a href="" class="socials-item link menu-link">
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#inst"></use>
-              </svg>
-            </a>
-            <a href="" class="socials-item link menu-link">
+            <a href="https://www.behance.net/brandux" target="_blank" class="socials-item link menu-link">
               <svg>
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#behance"></use>
               </svg>
             </a>
-            <a href="" class="socials-item link menu-link">
+            <a href="https://www.dribbble.com/brandux" target="_blank" class="socials-item link menu-link">
               <svg>
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#dribble"></use>
               </svg>
             </a>
+            <a href="https://www.instagram.com/brandux.agency" target="_blank" class="socials-item link menu-link">
+              <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#inst"></use>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/brandux.agency" target="_blank" class="socials-item link menu-link">
+              <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#facebook"></use>
+              </svg>
+            </a>
+
             <!-- <a href="" class="socials-item link menu-link">
               <svg>
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#linkedin"></use>
@@ -111,7 +121,7 @@
           2019. Brandux Agency. All rights reserved
         </div>
         <div class="page-label form-opener link">
-          Discuss your idea
+          <span>Discuss your idea</span>
         </div>
       </div>
     </div>
@@ -124,9 +134,8 @@
       </div>
       <div class="form-inner">
         <div class="success">
-          <svg>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#succes"></use>
-          </svg>
+          <!-- <img src="images/brandux_icon.gif" width="250" alt=""> -->
+          <div class="" id="icon"></div>
           <div class="form-title">
             Message sent
           </div>
@@ -144,33 +153,55 @@
           <div class="form-group">
             <input type="text" class="form-field">
             <span class="form-label">Name</span>
+            <span class="form-line"></span>
+            <svg>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#error"></use>
+            </svg>
           </div>
           <div class="form-row">
             <div class="form-group">
               <input type="email" class="form-field">
               <span class="form-label">Email <span>*</span></span>
+              <span class="form-line"></span>
+              <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#error"></use>
+              </svg>
             </div>
-            <div class="form-group">
-              <input type="tel" class="form-field">
+            <div class="form-group ">
+              <input type="tel" class="form-field" id="phone">
               <span class="form-label">Phone</span>
+              <span class="form-line"></span>
+              <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#error"></use>
+              </svg>
             </div>
           </div>
           <div class="form-group">
             <textarea class="form-area form-field"></textarea>
             <span class="form-label">Message</span>
+            <!-- <span class="form-line"></span> -->
           </div>
           <div class="form-btns">
-            <label class="file-field">
-              <input type="file" name="" id="">
-              <span class="file-field__label">
+            <div class="file-field link">
+              <label>
+                <input type="file" name="" id="">
+                <span class="file-field__load"></span>
+                <span class="file-field__label">
+                  <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#file"></use>
+                  </svg>
+                  <span class="file-field__percents">Add file</span>
+                  <span class="file-field__text">Add file</span>
+                </span>
+              </label>
+              <div class="file-field__remove">
                 <svg>
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#file"></use>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#remove"></use>
                 </svg>
-                Add file
-              </span>
-            </label>
+              </div>
+            </div>
             <button class="btn link">
-              Message
+              <span>send</span>
             </button>
           </div>
         </form>
@@ -188,27 +219,27 @@
         </div>
       </div>
       <div class="socials">
-        <a href="" class="socials-item link">
-          <svg>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#facebook"></use>
-          </svg>
-        </a>
-        <a href="" class="socials-item link">
-          <svg>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#inst"></use>
-          </svg>
-        </a>
-        <a href="" class="socials-item link">
+        <a href="https://www.behance.net/brandux" target="_blank" class="socials-item link">
           <svg>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#behance"></use>
           </svg>
         </a>
-        <a href="" class="socials-item link">
+        <a href="https://www.dribbble.com/brandux" target="_blank" class="socials-item link">
           <svg>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#dribble"></use>
           </svg>
         </a>
-        <!-- <a href="" class="socials-item link">
+        <a href="https://www.instagram.com/brandux.agency" target="_blank" class="socials-item link">
+          <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#inst"></use>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/brandux.agency" target="_blank" class="socials-item link">
+          <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#facebook"></use>
+          </svg>
+        </a>
+          <!-- <a href="" class="socials-item link">
           <svg>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/sprite.svg#linkedin"></use>
           </svg>
@@ -224,7 +255,7 @@
       Discuss your idea
     </div>
     <footer class="footer">
-      <div class="footer-label">Ull website is coming soon...</div>
+      <div class="footer-label">Full website is coming soon...</div>
     </footer>
   </div>
   <script id="vertex-shader" type="x-shader/x-vertex">
@@ -310,7 +341,7 @@
         newPos.z += noise.x * .06 * noise.y;
         vZ = newPos.z;
         vec4 mvPosition = modelViewMatrix * vec4( newPos, 1.0 );
-        gl_PointSize = 6.0;
+        gl_PointSize = 5.0;
         gl_Position = projectionMatrix * mvPosition;
     }
   </script>
