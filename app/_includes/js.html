@@ -1,1 +1,44 @@
 <script src="/js/app.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#form-fields").submit(function(event) {
+            event.preventDefault();
+            var error = false,
+                regexEmail = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+                email = $(this).find('input[type="email"]').val();
+
+            if(!regexEmail.test(email)) {
+                error = true;
+                $(this).find('input[type="email"]').addClass('error');
+            } else {
+                $(this).find('input[type="email"]').removeClass('error');
+            }
+
+            if (!error) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'mail.php',
+                    dataType: 'json',
+                    data: new FormData($(this)),
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function() {
+                        $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                    },
+                    success: function() {
+                        $(this).find('input, textarea').val('');
+                        // Here success popup
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.log(thrownError);
+                    },
+                    complete: function() {
+                        $(this).find('input[type="submit"]').prop('disabled', false);
+                    }
+                });
+            }
+            return false;
+        });
+    });
+</script>

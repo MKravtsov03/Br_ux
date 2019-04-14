@@ -143,7 +143,7 @@
             Thanks for writing to us. You will be contacted soon.
           </div>
         </div>
-        <form class="discus-form">
+        <form method="post" id="form-fields" class="discus-form" enctype="multipart/form-data">
           <div class="form-title">
             Discuss your idea
           </div>
@@ -151,7 +151,7 @@
             Available for work. Feel free to get in touch.
           </div>
           <div class="form-group">
-            <input type="text" class="form-field">
+            <input type="text" name="firstname" class="form-field">
             <span class="form-label">Name</span>
             <span class="form-line"></span>
             <svg>
@@ -160,7 +160,7 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <input type="email" class="form-field">
+              <input type="email" name="email" class="form-field">
               <span class="form-label">Email <span>*</span></span>
               <span class="form-line"></span>
               <svg>
@@ -168,7 +168,7 @@
               </svg>
             </div>
             <div class="form-group ">
-              <input type="tel" class="form-field" id="phone">
+              <input type="tel" name="phone" class="form-field">
               <span class="form-label">Phone</span>
               <span class="form-line"></span>
               <svg>
@@ -177,14 +177,14 @@
             </div>
           </div>
           <div class="form-group">
-            <textarea class="form-area form-field"></textarea>
+            <textarea name="message" class="form-area"></textarea>
             <span class="form-label">Message</span>
             <!-- <span class="form-line"></span> -->
           </div>
           <div class="form-btns">
             <div class="file-field link">
               <label>
-                <input type="file" name="" id="">
+                <input type="file" name="file" id="">
                 <span class="file-field__load"></span>
                 <span class="file-field__label">
                   <svg>
@@ -200,7 +200,7 @@
                 </svg>
               </div>
             </div>
-            <button class="btn link">
+            <button type="submit" id="form-btn" class="btn link">
               <span>send</span>
             </button>
           </div>
