@@ -1,8 +1,8 @@
 export default {
-  host: 'hostname',
+  host: 'musaevde.ftp.tools',
   port: 21,
-  user: 'username',
-  password: 'password',
+  user: 'musaevde_ftp',
+  password: '83lFcyls',
   parallel: 10,
   paths: {
     styles: '/css',

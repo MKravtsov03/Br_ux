@@ -271,7 +271,7 @@ class Cursor {
         width: this.outerCursorBox.width,
         height: this.outerCursorBox.height
       };
-      console.log(box)
+      // console.log(box)
       TweenMax.to(this.outerCursor, 0.2, {
         x: box.left,
         y: box.top,
@@ -361,7 +361,7 @@ class Cursor {
           backgroundColor: "#cf122d"
         });
       }
-      console.log(target)
+      // console.log(target)
       if (target.classList.contains('file-field')) {
         TweenMax.to(this.outerCursor, 0.5, {
           scale: 1.5,

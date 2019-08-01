@@ -1,5 +1,4 @@
 <script src="/js/app.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
     $(document).ready(function() {
         $("#form-fields").submit(function(event) {
@@ -14,27 +13,30 @@
             } else {
                 $(this).find('input[type="email"]').removeClass('error');
             }
-
+            console.log(error)
             if (!error) {
+                
                 $.ajax({
                     type: 'POST',
-                    url: 'mail.php',
+                    url: 'https://brandux.agency/mail.php',
                     dataType: 'json',
                     data: new FormData($(this)),
                     processData: false,
                     contentType: false,
                     beforeSend: function() {
-                        $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                        
+                        $(this).find('button[type="submit"]').attr('disabled', 'disabled');
                     },
                     success: function() {
+                        document.querySelector('.form-inner').classList.add('sent');
                         $(this).find('input, textarea').val('');
-                        // Here success popup
+                        
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         console.log(thrownError);
                     },
                     complete: function() {
-                        $(this).find('input[type="submit"]').prop('disabled', false);
+                        $(this).find('button[type="submit"]').prop('disabled', false);
                     }
                 });
             }

@@ -95,14 +95,14 @@ document.querySelector('.form-close').addEventListener('click', () => {
   document.querySelector('.form-holder').classList.remove('active');
   document.querySelector('.form-inner').classList.remove('sent');
 });
-document.querySelector('.discus-form').addEventListener('submit', (event) => {
-  event.preventDefault();
-  document.querySelector('.form-inner').classList.add('sent');
-  // setTimeout(() => {
-  //   document.querySelector('.form-inner').classList.remove('sent');
-  // }, 2000)
-});
-const inputs = document.querySelectorAll(".form-field");
+// document.querySelector('.discus-form').addEventListener('submit', (event) => {
+//   event.preventDefault();
+  
+//   // setTimeout(() => {
+//   //   document.querySelector('.form-inner').classList.remove('sent');
+//   // }, 2000)
+// });
+const inputs = document.querySelectorAll(".form-field, .form-area");
 inputs.forEach((item) => {
   item.addEventListener('keyup', function () {
     if (item.value !== '') {
@@ -153,6 +153,9 @@ $('textarea').on('scroll', function () {
 if ($(window).width() < 768) {
   $('.page-inner').append($('.footer .footer-label'));
 }
+$('.navigation a').on('click', (e)=> {
+  e.preventDefault();
+})
 const element = document.getElementById("icon")
 lottie.loadAnimation({
   container: element, // the dom element that will contain the animation

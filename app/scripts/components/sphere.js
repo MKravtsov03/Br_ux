@@ -56,7 +56,7 @@ export default () => {
 
       });
 
-      console.log(material.uniforms.texture);
+      // console.log(material.uniforms.texture);
 
       //const material = new THREE.PointsMaterial( { size: 1 } );
       this.particles = new THREE.Points(plane, material);
