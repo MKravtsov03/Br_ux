@@ -13,24 +13,28 @@
             } else {
                 $(this).find('input[type="email"]').removeClass('error');
             }
-            console.log(error)
+            
+            var $that = $(this),
+            formData = new FormData($that.get(0));
+
             if (!error) {
                 
                 $.ajax({
                     type: 'POST',
                     url: 'https://brandux.agency/mail.php',
                     dataType: 'json',
-                    data: new FormData($(this)),
+                    data: formData,
                     processData: false,
                     contentType: false,
                     beforeSend: function() {
                         
                         $(this).find('button[type="submit"]').attr('disabled', 'disabled');
                     },
-                    success: function() {
-                        document.querySelector('.form-inner').classList.add('sent');
-                        $(this).find('input, textarea').val('');
-                        
+                    success: function(json) {
+                        if (json['success']) {
+                          document.querySelector('.form-inner').classList.add('sent');
+                          $(this).find('input, textarea').val('');
+                        }
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         console.log(thrownError);
